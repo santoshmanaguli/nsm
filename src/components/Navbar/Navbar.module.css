@@ -1,0 +1,77 @@
+.nav_container {
+  top: 0px;
+  left: 0px;
+  width: 74px;
+  height: 100vh;
+  background: #252b2b 0% 0% no-repeat padding-box;
+  box-shadow: 5px 0px 6px #55555546;
+}
+
+.navbar {
+  padding: 15px 8px 15px 8px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.logo {
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+/* 
+.logo:hover::before {
+  background-color: #1f94ff;
+}
+
+.logo:hover {
+  background-color: #042158;
+}
+
+.logo:hover::before,
+.logo:hover {
+  background-color: transparent;
+} */
+
+.collectionLogo{
+  position: relative;
+  transition: background-color 0.3s;
+} 
+
+.collectionLogo::before{
+  width: 3px;
+  background-color: transparent;
+  position: absolute;
+  transition: background-color 0.3s;
+}
+
+.collectionLogo:hover::before{
+  background-color: #fff;
+  opacity: 10%;
+}
+.collectionLogo:hover{
+  background-color: #FFAF2E;
+}
+
+
+.logoImg {
+  width: 44px;
+  height: 44px;
+}
+
+.title {
+  color: #fff;
+  font-size: 14px;
+}
+
+.navItems {
+  color: #fff;
+  font-size: 13px;
+  margin: 0px 0px 20px 0px;
+}
+
+.navMenu {
+  margin-top: 30px;
+}
+
+.profileLogo{
+  
+}

@@ -1,0 +1,21 @@
+.container{
+  padding: 20px 40px 20px 40px;
+}
+
+.breadcrumbContent{
+  display: flex;
+  gap: 10px;
+}
+
+.routes{
+  display: flex;
+  gap: 10px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.faint{
+  opacity: 0.6;
+}

@@ -10,7 +10,8 @@ const templates = new URL("../../assets/templates.svg", import.meta.url).href;
 const works = new URL("../../assets/works.svg", import.meta.url).href;
 const admin = new URL("../../assets/admin-panel.svg", import.meta.url).href;
 const reports = new URL("../../assets/reports.svg", import.meta.url).href;
-const profileLogo = new URL("../../assets/preview.svg", import.meta.url).href
+const profileLogo = new URL("../../assets/preview.svg", import.meta.url).href;
+const userCard = new URL("../../assets/user-card.png", import.meta.url).href;
 
 const Navbar = () => {
   return (
@@ -53,7 +54,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className={styles.profileLogo}>
-          <img src={profileLogo} alt="" />
+          <img src={userCard} alt="user" />
         </div>
       </div>
     </div>

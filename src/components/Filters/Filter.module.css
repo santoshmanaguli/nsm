@@ -1,0 +1,11 @@
+.container{
+
+}
+
+.icon{
+  background-color: #F5F8FA;
+  border-radius: 8px;
+  padding: 10px;
+  align-items: center;
+  display: flex;
+}

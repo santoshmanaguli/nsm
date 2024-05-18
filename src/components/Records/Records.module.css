@@ -1,12 +1,73 @@
-.container{
-  background-color: #F5F7F8;
+.container {
+  background-color: #f5f7f8;
   padding: 20px 20px 0px 20px;
 }
 
-.main{
+.main {
   background-color: #ffffff;
   padding: 30px 15px 15px 15px;
   border-radius: 5px 5px 0px 0px;
+}
+
+.searchFilter {
   display: flex;
   justify-content: space-between;
+}
+
+.recordFound {
+  padding: 20px 0px 20px 0px;
+}
+
+th{
+  padding: 15px 5px 15px 5px;
+  text-align: left;
+  border-bottom: 1px solid #EEF2F5;
+  border-top: 1px solid #EEF2F5;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #EEF2F5;
+}
+
+.tableHeader {
+  align-items: center;
+}
+.recordTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* .tableRow {
+  border-top: 1px solid #eaeff0;
+  border-bottom: 1px solid #eaeff0;
+  padding: 15px 0px 15px 0px;
+} */
+
+.actionDiv {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 2px 20px 2px;
+}
+
+.actionBtn {
+  background-color: #dbe5ed;
+  border-radius: 5px;
+  padding: 6px;
+}
+.tableData {
+  padding: 20px 5px 20px 5px;
+}
+
+.pageBtn{
+  background-color: #F8FAFD;
+  padding: 10px;
+  border-radius: 7px;
+  border: 1px solid #F8FAFD;
+}
+
+.paginationBtn{
+  padding: 5px;
+  background-color: #EDF3F7;
 }

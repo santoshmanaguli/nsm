@@ -1,17 +1,16 @@
 import React from "react";
 import styles from "./Navbar.module.css";
-
-//images
-const logo = new URL("../../assets/müellif-logo.svg", import.meta.url).href;
-const dashboard = new URL("../../assets/dashboard.svg", import.meta.url).href;
-const collections = new URL("../../assets/collections.svg", import.meta.url)
-  .href;
-const templates = new URL("../../assets/templates.svg", import.meta.url).href;
-const works = new URL("../../assets/works.svg", import.meta.url).href;
-const admin = new URL("../../assets/admin-panel.svg", import.meta.url).href;
-const reports = new URL("../../assets/reports.svg", import.meta.url).href;
-const profileLogo = new URL("../../assets/preview.svg", import.meta.url).href;
-const userCard = new URL("../../assets/user-card.png", import.meta.url).href;
+import {
+  logo,
+  dashboard,
+  collections,
+  templates,
+  works,
+  admin,
+  reports,
+  userCard,
+  profileLogo,
+} from "../../assets/images";
 
 const Navbar = () => {
   return (

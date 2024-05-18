@@ -28,16 +28,15 @@ export default function Records() {
 
   //functions
   const handleInputChange = (query) => {
-    console.log("CAME", query);
     setSearch(query.toLowerCase().trim());
 
+    //filtering for search 
     const filtered = tableData.filter((i) => {
       const id = i.id;
       const tem_name = i.template_name.toLowerCase();
       const model_type = i.model_type.toLowerCase();
       const date_time = i.date_time;
 
-      console.log(id, tem_name, model_type, date_time, "2", query);
 
       return (
         id.includes(query) ||
@@ -47,12 +46,9 @@ export default function Records() {
       );
     });
 
-    console.log("LOGGED", filtered, filtered.length == 0, query === "", query);
     if (filtered.length == 0 && query == "") {
-      console.log(1); 
       setTableData1(tableData);
     } else {
-      console.log(2);
       setTableData1(filtered);
     }
   };

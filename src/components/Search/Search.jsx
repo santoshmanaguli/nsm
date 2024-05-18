@@ -6,7 +6,6 @@ const search_icon = new URL("../../assets/search.svg", import.meta.url).href;
 export default function Search({ onInputChange, search }) {
 
   function handleChange(e){
-    console.log("FUNC");
     onInputChange(e.target.value);
   }
   return (

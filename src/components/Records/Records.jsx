@@ -14,7 +14,7 @@ import {
   info,
   continue_template,
   left_arrow,
-  right_arrow
+  right_arrow,
 } from "../../assets/images";
 
 export default function Records() {
@@ -24,22 +24,55 @@ export default function Records() {
   //state
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [tableData1, setTableData1] = useState(tableData);
 
   //functions
-  const handleInputChange = (data) => {
-    setSearch(data);
+  const handleInputChange = (query) => {
+    console.log("CAME", query);
+    setSearch(query.toLowerCase().trim());
+
+    const filtered = tableData.filter((i) => {
+      const id = i.id;
+      const tem_name = i.template_name.toLowerCase();
+      const model_type = i.model_type.toLowerCase();
+      const date_time = i.date_time;
+
+      console.log(id, tem_name, model_type, date_time, "2", query);
+
+      return (
+        id.includes(query) ||
+        tem_name.includes(query) ||
+        model_type.includes(query) ||
+        date_time.includes(query)
+      );
+    });
+
+    console.log("LOGGED", filtered, filtered.length == 0, query === "", query);
+    if (filtered.length == 0 && query == "") {
+      console.log(1); 
+      setTableData1(tableData);
+    } else {
+      console.log(2);
+      setTableData1(filtered);
+    }
   };
 
-  const toggleContent = () => {
-    setIsOpen(!isOpen);
+  const toggleContent = (toggle, index) => {
+    setIsOpen(!toggle);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("data.json"); // Adjust path if needed
       const data = await response.json();
+      data.forEach((i) => {
+        i.isOpen = false;
+      });
       dispatch(setTableData(data));
-      console.log(tableData);
+      setTableData1(data);
+      setTimeout(() => {
+        console.log(tableData);
+      }, 2000);
     };
     fetchData();
   }, [dispatch]);
@@ -49,11 +82,11 @@ export default function Records() {
     <div className={styles.container}>
       <div className={styles.main}>
         <div className={styles.searchFilter}>
-          <Search onInputChange={handleInputChange} />
-          <Filter />
+          <Search onInputChange={handleInputChange} search={search} />
+          <Filter data={tableData} />
         </div>
         <div className={styles.recordFound}>
-          <b>{tableData.length}</b> Records Found
+          <b>{tableData1.length}</b> Records Found
         </div>
         <div className={styles.table}>
           <table className={styles.recordTable}>
@@ -84,14 +117,100 @@ export default function Records() {
               </tr>
             </thead>
             <tbody>
-              {tableData.map((row, index) => {
-                return (
+              {tableData1.map((row, index) => {
+                return isOpen && row.id == "RRM0002" ? (
+                  <div>
+                    <tr
+                      key={index}
+                      className={`${styles.tableRow} btn`}
+                      style={{ backgroundColor: "#C3CBD3" }}
+                    >
+                      <td className={styles.tableData}>
+                        {row.id !== "RRM0002" && (
+                          <img
+                            src={downArrow}
+                            alt=""
+                            className={`${
+                              row.id == "RRM0002" ? "cursor-pointer" : ""
+                            }`}
+                          />
+                        )}
+
+                        {row.id == "RRM0002" ? (
+                          <img
+                            src={!isOpen ? downArrow : upArrow}
+                            alt=""
+                            className={`${
+                              row.id == "RRM0002" ? "cursor-pointer" : ""
+                            }`}
+                            onClick={() => toggleContent(isOpen)}
+                          />
+                        ) : (
+                          ""
+                        )}
+                      </td>
+                      <td className={styles.tableData}>
+                        {row.id == "RRM0002" ? (
+                          <img src={star_filled} />
+                        ) : (
+                          <img src={unfilled_star} />
+                        )}
+                      </td>
+                      <td
+                        className={styles.tableData}
+                        style={{ fontSize: "26px", color: "#FFAF2E" }}
+                      >
+                        {row.id}
+                      </td>
+                      <td className={styles.tableData} />
+                      <td className={styles.tableData} />
+                      <td className={styles.tableData} />
+                      <td>
+                        {/* <div className={`${styles.actionBtn} cursor-pointer`}>
+                        <img src={preview} alt="preview" />
+                      </div>
+                      <div className={`${styles.actionBtn} cursor-pointer`}>
+                        <img
+                          src={continue_template}
+                          alt="continue to template"
+                        />
+                      </div>
+                      <div className={`${styles.actionBtn} cursor-pointer`}>
+                        <img src={info} alt="information" />
+                      </div>
+                      <div className={`${styles.actionBtn} cursor-pointer`}>
+                        <img src={copy_url} alt="copy url" />
+                      </div> */}
+                      </td>
+                      <tr>
+                        <td>Model Contract Name</td>
+                      </tr>
+                    </tr>
+                  </div>
+                ) : (
                   <tr key={index} className={styles.tableRow}>
                     <td className={styles.tableData}>
-                      {!isOpen ? (
-                        <img src={downArrow} alt="" />
+                      {row.id !== "RRM0002" && (
+                        <img
+                          src={downArrow}
+                          alt=""
+                          className={`${
+                            row.id == "RRM0002" ? "cursor-pointer" : ""
+                          }`}
+                        />
+                      )}
+
+                      {row.id == "RRM0002" ? (
+                        <img
+                          src={!isOpen ? downArrow : upArrow}
+                          alt=""
+                          className={`${
+                            row.id == "RRM0002" ? "cursor-pointer" : ""
+                          }`}
+                          onClick={() => toggleContent(isOpen)}
+                        />
                       ) : (
-                        <img src={upArrow} alt="" />
+                        ""
                       )}
                     </td>
                     <td className={styles.tableData}>
@@ -106,19 +225,19 @@ export default function Records() {
                     <td className={styles.tableData}>{row.model_type}</td>
                     <td className={styles.tableData}>{row.date_time}</td>
                     <td className={styles.actionDiv}>
-                      <div className={styles.actionBtn}>
+                      <div className={`${styles.actionBtn} cursor-pointer`}>
                         <img src={preview} alt="preview" />
                       </div>
-                      <div className={styles.actionBtn}>
+                      <div className={`${styles.actionBtn} cursor-pointer`}>
                         <img
                           src={continue_template}
                           alt="continue to template"
                         />
                       </div>
-                      <div className={styles.actionBtn}>
+                      <div className={`${styles.actionBtn} cursor-pointer`}>
                         <img src={info} alt="information" />
                       </div>
-                      <div className={styles.actionBtn}>
+                      <div className={`${styles.actionBtn} cursor-pointer`}>
                         <img src={copy_url} alt="copy url" />
                       </div>
                     </td>
@@ -137,14 +256,39 @@ export default function Records() {
               <img src={downArrow} alt="" />
             </button>
           </div>
-          <div style={{display: "flex", gap: "10px"}}>
-            <button className={styles.paginationBtn} type="button">
+          <div style={{ display: "flex", gap: "10px" }}>
+            <button
+              className={`${styles.paginationBtn} cursor-pointer`}
+              type="button"
+            >
               <img src={left_arrow} alt="" />
             </button>
-            <button className={styles.paginationBtn} style={{backgroundColor: "#212626", color: "#FFFFFF"}} type="button">1</button>
-            <button className={styles.paginationBtn} type="button">2</button>
-            <button className={styles.paginationBtn} type="button">3</button>
-            <button className={styles.paginationBtn} type="button"> <img src={right_arrow} alt="" /> </button>
+            <button
+              className={`${styles.paginationBtn} cursor-pointer`}
+              style={{ backgroundColor: "#212626", color: "#FFFFFF" }}
+              type="button"
+            >
+              1
+            </button>
+            <button
+              className={`${styles.paginationBtn} cursor-pointer`}
+              type="button"
+            >
+              2
+            </button>
+            <button
+              className={`${styles.paginationBtn} cursor-pointer`}
+              type="button"
+            >
+              3
+            </button>
+            <button
+              className={`${styles.paginationBtn} cursor-pointer`}
+              type="button"
+            >
+              {" "}
+              <img src={right_arrow} alt="" />{" "}
+            </button>
           </div>
         </div>
       </div>

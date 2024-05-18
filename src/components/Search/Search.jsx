@@ -3,9 +3,10 @@ import styles from './Search.module.css'
 
 const search_icon = new URL("../../assets/search.svg", import.meta.url).href;
 
-export default function Search({ onInputChange }) {
+export default function Search({ onInputChange, search }) {
 
   function handleChange(e){
+    console.log("FUNC");
     onInputChange(e.target.value);
   }
   return (
@@ -17,6 +18,7 @@ export default function Search({ onInputChange }) {
         placeholder="Write something about the template you want to find"
         className={styles.searchRecords}
         onChange={handleChange}
+        value={search}
       />
     </div>
   );

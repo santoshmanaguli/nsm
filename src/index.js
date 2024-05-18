@@ -10,11 +10,4 @@ const routes = [
   },
 ];
 
-const id = [
-  { id: 1, name: "Legal" },
-  { id: 2, name: "Penalty" },
-  { id: 3, name: "Executive" },
-  { id: 4, name: "Conciliation" },
-];
-
-export {id, routes};
+export {routes};

@@ -19,13 +19,83 @@
   width: 50%;
 }
 
-.header{
-  border-bottom: 1px solid #DFE5F0;
+.header {
+  border-bottom: 1px solid #dfe5f0;
   padding: 20px;
   display: flex;
   justify-content: space-between;
 }
 
-.filterHeader{
+.filterHeader {
   margin-left: 10px;
+}
+
+.templateId {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form {
+  padding: 20px;
+  border-bottom: 1px solid #dfe5f0;
+}
+
+.selectDiv {
+  width: 40%;
+}
+
+.modelTypeSelect {
+  margin-top: 10px;
+}
+
+.preferenceTheme {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #F5F7F8;
+  border-bottom: 1px solid #dfe5f0;
+}
+
+.footer {
+  padding: 20px;
+}
+
+.clearFilter {
+  padding: 10px;
+  background-color: #eff2f5;
+  font-weight: bold;
+  border: 1px solid #eff2f5;
+  border-radius: 7px;
+  width: 120px;
+}
+
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cancelbtn {
+  background-color: #ebedf0;
+  border: 1px solid #ebedf0;
+  font-weight: bold;
+  border-radius: 7px;
+  padding: 10px;
+  width: 100px;
+}
+
+.applybtn {
+  background-color: #11141c;
+  color: #fff;
+  border: 1px solid #11141c;
+  font-weight: bold;
+  padding: 10px;
+  width: 100px;
+  border-radius: 7px;
+}
+
+.applyDiv{
+  gap: 20px;
+  display: flex;
 }

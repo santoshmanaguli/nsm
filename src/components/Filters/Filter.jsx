@@ -5,7 +5,7 @@ import { filter } from "../../assets/images";
 
 
 
-export default function Filter() {
+export default function Filter({data}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,7 +19,7 @@ export default function Filter() {
 
       {/* modal */}
       <div className={styles.filterModal}>
-        <Modal isOpen={show} hide={handleClose} />
+        <Modal isOpen={show} hide={handleClose} data={data} />
       </div>
     </div>
   );

@@ -27,9 +27,9 @@ export default function Breadcrumb() {
                     transform="translate(4.893 1.414) rotate(90)"
                     fill="none"
                     stroke="#0A0E12"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                   />
                 </svg>
               </div>

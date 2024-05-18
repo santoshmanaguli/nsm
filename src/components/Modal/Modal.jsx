@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../Modal/Modal.module.css";
 import { close, filter } from "../../assets/images";
 import Select from "react-select";
@@ -7,6 +7,11 @@ export default function Modal({ isOpen, hide, data }) {
   if (!isOpen) {
     return null; //show not render if not open
   }
+
+  //
+  const [selectedIDs, setSelectedIDs] = useState([]);
+  const [selectedModels, setSelectedModels] = useState([]);
+  const [selectedTempName, setSelectedTempName] = useState([]);
 
   const ids = data.map((table, index) => {
     return { label: table.id, value: table.id };
@@ -21,7 +26,17 @@ export default function Modal({ isOpen, hide, data }) {
   })
 
 
-  function selectAll() {}
+  const handleSelectChange = (value, isSelected) => {
+    console.log(value, isSelected);
+    const updatedOptions = ids.map(i => {
+      if (i.value === value) {
+        return { ...i, isSelected };
+      }
+      return i;
+    });
+    setSelectedIDs(updatedOptions.filter(option => option.isSelected).map(option => option.value));
+    console.log(selectedIDs);
+  };
 
   return (
     <div className={styles.modalContainer}>
@@ -58,6 +73,7 @@ export default function Modal({ isOpen, hide, data }) {
                   classNamePrefix="select"
                   isClearable={false}
                   placeholder="Choose"
+                  onChange={handleSelectChange}
                 />
               </div>
               <div className={styles.selectDiv}>

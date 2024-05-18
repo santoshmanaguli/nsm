@@ -1,11 +1,9 @@
 import React from "react";
 import styles from "./Breadcrumb.module.css";
-import routes from '../../index'
+import routes from "../../index";
+import { home, right_arrow } from "../../assets/images";
 
 //images
-const home = new URL("../../assets/home.svg", import.meta.url).href;
-const right_arrow = new URL("../../assets/right-arrow.svg", import.meta.url)
-  .href;
 
 export default function Breadcrumb() {
   return (

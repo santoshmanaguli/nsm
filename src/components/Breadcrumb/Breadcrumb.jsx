@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Breadcrumb.module.css";
-import routes from "../../index";
+import {routes} from "../../index";
 import { home, right_arrow } from "../../assets/images";
 
 //images

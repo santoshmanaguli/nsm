@@ -19,6 +19,8 @@ const copy_url = new URL("./copyurl.svg", import.meta.url).href;
 const info = new URL("./information.svg", import.meta.url).href;
 const continue_template = new URL("./continue.svg", import.meta.url).href;
 const left_arrow = new URL("./left-arrow.svg", import.meta.url).href;
+const close = new URL("./close.svg", import.meta.url).href;
+
 
 export {
   home,
@@ -42,4 +44,5 @@ export {
   info,
   continue_template,
   left_arrow,
+  close
 };

@@ -13,14 +13,14 @@ export default function Filter() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.icon} onClick={handleShow}>
+      <div className={`${styles.icon} cursor-pointer`} onClick={handleShow}>
         <img src={filter} alt="" />
       </div>
 
       {/* modal */}
-      {/* <div className={styles.filterModal}>
+      <div className={styles.filterModal}>
         <Modal isOpen={show} hide={handleClose} />
-      </div> */}
+      </div>
     </div>
   );
 }

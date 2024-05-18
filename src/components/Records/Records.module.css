@@ -60,6 +60,11 @@ td {
   padding: 20px 5px 20px 5px;
 }
 
+.pagination{
+  display: flex;
+  justify-content: space-between;
+}
+
 .pageBtn{
   background-color: #F8FAFD;
   padding: 10px;
@@ -68,6 +73,8 @@ td {
 }
 
 .paginationBtn{
-  padding: 5px;
+  padding: 2px 10px 2px 10px;
   background-color: #EDF3F7;
+  border-radius: 7px;
+  border: 1px solid #EDF3F7;  
 }

@@ -13,6 +13,8 @@ import {
   copy_url,
   info,
   continue_template,
+  left_arrow,
+  right_arrow
 } from "../../assets/images";
 
 export default function Records() {
@@ -135,15 +137,14 @@ export default function Records() {
               <img src={downArrow} alt="" />
             </button>
           </div>
-          <div className={styles.paginationBtn}>
-            <button type="button">
-              {" "}
-              <img src="" alt="" />{" "}
+          <div style={{display: "flex", gap: "10px"}}>
+            <button className={styles.paginationBtn} type="button">
+              <img src={left_arrow} alt="" />
             </button>
-            <button type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
-            <button type="button"> {">"} </button>
+            <button className={styles.paginationBtn} style={{backgroundColor: "#212626", color: "#FFFFFF"}} type="button">1</button>
+            <button className={styles.paginationBtn} type="button">2</button>
+            <button className={styles.paginationBtn} type="button">3</button>
+            <button className={styles.paginationBtn} type="button"> <img src={right_arrow} alt="" /> </button>
           </div>
         </div>
       </div>

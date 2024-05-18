@@ -1,5 +1,5 @@
 const home = new URL("./home.svg", import.meta.url).href;
-const right_arrow = new URL(".right-arrow.svg", import.meta.url).href;
+const right_arrow = new URL("./right-arrow.svg", import.meta.url).href;
 const filter = new URL("./filter.svg", import.meta.url).href;
 const logo = new URL("./müellif-logo.svg", import.meta.url).href;
 const dashboard = new URL("./dashboard.svg", import.meta.url).href;
@@ -12,15 +12,13 @@ const profileLogo = new URL("./preview.svg", import.meta.url).href;
 const userCard = new URL("./user-card.png", import.meta.url).href;
 const downArrow = new URL("./down-arrow.svg", import.meta.url).href;
 const upArrow = new URL("./up-arrow.svg", import.meta.url).href;
-const unfilled_star = new URL("./star-empty.svg", import.meta.url)
-  .href;
-const star_filled = new URL("./star-filled.svg", import.meta.url)
-  .href;
+const unfilled_star = new URL("./star-empty.svg", import.meta.url).href;
+const star_filled = new URL("./star-filled.svg", import.meta.url).href;
 const preview = new URL("./preview.svg", import.meta.url).href;
 const copy_url = new URL("./copyurl.svg", import.meta.url).href;
 const info = new URL("./information.svg", import.meta.url).href;
-const continue_template = new URL("./continue.svg", import.meta.url)
-  .href;
+const continue_template = new URL("./continue.svg", import.meta.url).href;
+const left_arrow = new URL("./left-arrow.svg", import.meta.url).href;
 
 export {
   home,
@@ -43,4 +41,5 @@ export {
   copy_url,
   info,
   continue_template,
+  left_arrow,
 };

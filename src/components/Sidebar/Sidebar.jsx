@@ -1,14 +1,27 @@
 import React, { useState } from "react";
 import styles from "./Sidebar.module.css";
-import {
-  downArrow,
-  upArrow,
-  all_template,
-  all_template_white,
-  contract_template,
-  document_template,
-  petition_template,
-} from "../../assets/images";
+
+//images
+const downArrow = new URL("../../assets/down-arrow.svg", import.meta.url).href;
+const upArrow = new URL("../../assets/up-arrow.svg", import.meta.url).href;
+const all_template = new URL("../../assets/all-templates.svg", import.meta.url)
+  .href;
+const all_template_white = new URL(
+  "../../assets/all-templates-white.svg",
+  import.meta.url
+).href;
+const contract_template = new URL(
+  "../../assets/contract-templates.svg",
+  import.meta.url
+).href;
+const document_template = new URL(
+  "../../assets/document-templates.svg",
+  import.meta.url
+).href;
+const petition_template = new URL(
+  "../../assets/petition-templates.svg",
+  import.meta.url
+).href;
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);

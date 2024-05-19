@@ -173,30 +173,82 @@ export default function Records() {
                     className={`${styles.tableRow} btn`}
                     style={{ backgroundColor: "#C3CBD3" }}
                   >
-                    <td className={styles.tableData}>
-                      <div>
-                        {row.id !== "RRM0002" && (
-                          <img
-                            src={downArrow}
-                            alt=""
-                            className={`${
-                              row.id == "RRM0002" ? "cursor-pointer" : ""
-                            }`}
-                          />
-                        )}
+                    <td className={styles.tableData} colSpan="12">
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        <div style={{ width: "36px" }}>
+                          {row.id !== "RRM0002" && (
+                            <img
+                              src={downArrow}
+                              alt=""
+                              className={`${
+                                row.id == "RRM0002" ? "cursor-pointer" : ""
+                              }`}
+                            />
+                          )}
 
-                        {row.id == "RRM0002" ? (
-                          <img
-                            src={!isOpen ? downArrow : upArrow}
-                            alt=""
-                            className={`${
-                              row.id == "RRM0002" ? "cursor-pointer" : ""
-                            }`}
-                            onClick={() => toggleContent(isOpen)}
-                          />
-                        ) : (
-                          ""
-                        )}
+                          {row.id == "RRM0002" ? (
+                            <img
+                              src={!isOpen ? downArrow : upArrow}
+                              alt=""
+                              className={`${
+                                row.id == "RRM0002" ? "cursor-pointer" : ""
+                              }`}
+                              onClick={() => toggleContent(isOpen)}
+                            />
+                          ) : (
+                            ""
+                          )}
+                        </div>
+                        <div style={{ width: "44px" }}>
+                          <img src={star_filled} />
+                        </div>
+                        <div
+                          style={{
+                            fontSize: "26px",
+                            color: "#FFAF2E",
+                            fontWeight: "600",
+                          }}
+                        >
+                          {row.id}
+                        </div>
+                      </div>
+                      <div style={{ padding: "15px 80px 15px 80px ", display: 'flex' }}>
+                        <div style={{width: "82%"}}>
+                          <div>
+                            <div style={{ color: "#7A8C98" }}>
+                              Model Contract Name
+                            </div>
+                            <div style={{ marginTop: "5px" }}>
+                              {row.template_name}
+                            </div>
+                          </div>
+                          <div>
+                            <div
+                              style={{ color: "#7A8C98", marginTop: "15px" }}
+                            >
+                              Contract Type
+                            </div>
+                            <div style={{ marginTop: "5px" }}>
+                              {row.contract_type}
+                            </div>
+                          </div>
+                          <div>
+                            <div
+                              style={{ color: "#7A8C98", marginTop: "15px" }}
+                            >
+                              Date/Time
+                            </div>
+                            <div style={{ marginTop: "5px" }}>
+                              {row.date_time}
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <div style={{ color: "#7A8C98" }}>About Model</div>
+                          <div>{row.model_desc}</div>
+                          <div style={{ color: "#7A8C98", marginTop: "15px" }}>Model Usage Preferences</div>
+                          <div>{row.model_usage_preference}</div>
+                        </div>
                       </div>
                     </td>
                   </tr>

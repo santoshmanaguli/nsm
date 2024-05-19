@@ -2,7 +2,7 @@
   top: 0px;
   left: 0px;
   width: 74px;
-  height: 100vh;
+  height: 880px;
   background: #252b2b 0% 0% no-repeat padding-box;
   box-shadow: 5px 0px 6px #55555546;
 }
@@ -43,13 +43,13 @@
   transition: background-color 0.3s;
 }
 
-.collectionLogo:hover::before{
+/* .collectionLogo:hover::before{
   background-color: #fff;
   opacity: 10%;
 }
 .collectionLogo:hover{
   background-color: #FFAF2E;
-}
+} */
 
 
 .logoImg {
@@ -75,5 +75,5 @@
 .profileLogo{
   bottom: 10px;
   left: 15px;
-  position: absolute;
+  position: fixed;
 }

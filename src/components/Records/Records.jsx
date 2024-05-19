@@ -79,7 +79,6 @@ export default function Records() {
   };
 
   const handleFilter = (string) => {
-
     //filtering for search
 
     const filtered = tableData.filter((i) => {
@@ -169,13 +168,13 @@ export default function Records() {
             <tbody>
               {tableData1.map((row, index) => {
                 return isOpen && row.id == "RRM0002" ? (
-                  <div>
-                    <tr
-                      key={index}
-                      className={`${styles.tableRow} btn`}
-                      style={{ backgroundColor: "#C3CBD3" }}
-                    >
-                      <td className={styles.tableData}>
+                  <tr
+                    key={index}
+                    className={`${styles.tableRow} btn`}
+                    style={{ backgroundColor: "#C3CBD3" }}
+                  >
+                    <td className={styles.tableData}>
+                      <div>
                         {row.id !== "RRM0002" && (
                           <img
                             src={downArrow}
@@ -198,45 +197,9 @@ export default function Records() {
                         ) : (
                           ""
                         )}
-                      </td>
-                      <td className={styles.tableData}>
-                        {row.id == "RRM0002" ? (
-                          <img src={star_filled} />
-                        ) : (
-                          <img src={unfilled_star} />
-                        )}
-                      </td>
-                      <td
-                        className={styles.tableData}
-                        style={{ fontSize: "26px", color: "#FFAF2E" }}
-                      >
-                        {row.id}
-                      </td>
-                      <td className={styles.tableData} />
-                      <td className={styles.tableData} />
-                      <td className={styles.tableData} />
-                      <td>
-                        {/* <div className={`${styles.actionBtn} cursor-pointer`}>
-                        <img src={preview} alt="preview" />
                       </div>
-                      <div className={`${styles.actionBtn} cursor-pointer`}>
-                        <img
-                          src={continue_template}
-                          alt="continue to template"
-                        />
-                      </div>
-                      <div className={`${styles.actionBtn} cursor-pointer`}>
-                        <img src={info} alt="information" />
-                      </div>
-                      <div className={`${styles.actionBtn} cursor-pointer`}>
-                        <img src={copy_url} alt="copy url" />
-                      </div> */}
-                      </td>
-                      <tr>
-                        <td>Model Contract Name</td>
-                      </tr>
-                    </tr>
-                  </div>
+                    </td>
+                  </tr>
                 ) : (
                   <tr key={index} className={styles.tableRow}>
                     <td className={styles.tableData}>

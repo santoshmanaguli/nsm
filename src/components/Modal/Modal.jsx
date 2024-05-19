@@ -3,40 +3,47 @@ import styles from "../Modal/Modal.module.css";
 import { close, filter } from "../../assets/images";
 import Select from "react-select";
 
-export default function Modal({ isOpen, hide, data }) {
+export default function Modal({
+  isOpen,
+  hide,
+  data,
+  handleSelectChangeType,
+  handleSelectChangeName,
+  handleSelectChangeId,
+  handleFilter
+}) {
   if (!isOpen) {
     return null; //show not render if not open
   }
-
-  //
-  const [selectedIDs, setSelectedIDs] = useState([]);
-  const [selectedModels, setSelectedModels] = useState([]);
-  const [selectedTempName, setSelectedTempName] = useState([]);
 
   const ids = data.map((table, index) => {
     return { label: table.id, value: table.id };
   });
 
   const template_name = data.map((i, index) => {
-    return {label: i.template_name,value: i.template_name }
-  })
+    return { label: i.template_name, value: i.template_name };
+  });
 
   const mdl_type = data.map((i, index) => {
-    return {label: i.model_type,value: i.model_type }
-  })
+    return { label: i.model_type, value: i.model_type };
+  });
 
+  function handleSelectId(value, isSelected){
+    handleSelectChangeId(value, isSelected)
+  }
 
-  const handleSelectChange = (value, isSelected) => {
-    console.log(value, isSelected);
-    const updatedOptions = ids.map(i => {
-      if (i.value === value) {
-        return { ...i, isSelected };
-      }
-      return i;
-    });
-    setSelectedIDs(updatedOptions.filter(option => option.isSelected).map(option => option.value));
-    console.log(selectedIDs);
-  };
+  function handleSelectName(value, isSelected){
+    handleSelectChangeName(value, isSelected)
+  }
+
+  function handleSelectType(value, isSelected){
+    handleSelectChangeType(value, isSelected)
+  }
+
+  function onApply(){
+    handleFilter("this");
+    hide();
+  }
 
   return (
     <div className={styles.modalContainer}>
@@ -53,6 +60,7 @@ export default function Modal({ isOpen, hide, data }) {
             <img
               src={close}
               alt="close"
+              id="#closeModal"
               className="cursor-pointer"
               onClick={hide}
             />
@@ -73,7 +81,7 @@ export default function Modal({ isOpen, hide, data }) {
                   classNamePrefix="select"
                   isClearable={false}
                   placeholder="Choose"
-                  onChange={handleSelectChange}
+                  onChange={handleSelectId}
                 />
               </div>
               <div className={styles.selectDiv}>
@@ -88,7 +96,8 @@ export default function Modal({ isOpen, hide, data }) {
                   classNamePrefix="select"
                   placeholder="Choose"
                   isClearable={false}
-                  style={{marginTop: "10px"}}
+                  style={{ marginTop: "10px" }}
+                  onChange={handleSelectName}
                 />
               </div>
             </div>
@@ -104,6 +113,7 @@ export default function Modal({ isOpen, hide, data }) {
                 classNamePrefix="select"
                 placeholder="Choose"
                 isClearable={false}
+                onChange={handleSelectType}
               />
             </div>
           </div>
@@ -145,10 +155,18 @@ export default function Modal({ isOpen, hide, data }) {
             </button>
           </div>
           <div className={styles.applyDiv}>
-            <button type="button" className={`${styles.cancelbtn} cursor-pointer`} onClick={hide}>
+            <button
+              type="button"
+              className={`${styles.cancelbtn} cursor-pointer`}
+              onClick={hide}
+            >
               Cancel
             </button>
-            <button type="button" className={`${styles.applybtn} cursor-pointer`}>
+            <button
+              type="button"
+              className={`${styles.applybtn} cursor-pointer`}
+              onClick={() => {onApply();}}
+            >
               Apply
             </button>
           </div>

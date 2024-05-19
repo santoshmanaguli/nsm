@@ -3,9 +3,13 @@ import styles from "./Filter.module.css";
 import Modal from "../Modal/Modal";
 import { filter } from "../../assets/images";
 
-
-
-export default function Filter({data}) {
+export default function Filter({
+  data,
+  handleSelectChangeId,
+  handleSelectChangeName,
+  handleSelectChangeType,
+  handleFilter,
+}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -19,7 +23,15 @@ export default function Filter({data}) {
 
       {/* modal */}
       <div className={styles.filterModal}>
-        <Modal isOpen={show} hide={handleClose} data={data} />
+        <Modal
+          isOpen={show}
+          hide={handleClose}
+          data={data}
+          handleSelectChangeId={handleSelectChangeId}
+          handleSelectChangeName={handleSelectChangeName}
+          handleSelectChangeType={handleSelectChangeType}
+          handleFilter={handleFilter}
+        />
       </div>
     </div>
   );

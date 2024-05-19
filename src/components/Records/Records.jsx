@@ -25,19 +25,44 @@ export default function Records() {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [tableData1, setTableData1] = useState(tableData);
+  const [selectedIDs, setSelectedIDs] = useState([]);
+  const [selectedModels, setSelectedModels] = useState([]);
+  const [selectedTempName, setSelectedTempName] = useState([]);
 
   //functions
+  const handleSelectChangeId = (value, isSelected) => {
+    const updateOptions = value.map((i) => {
+      return i.value;
+    });
+    const updatedOption1 = updateOptions;
+    setSelectedIDs(updatedOption1);
+  };
+
+  const handleSelectChangeName = (value, isSelected) => {
+    const updateOptions = value.map((i) => {
+      return i.value;
+    });
+    const updatedOption1 = updateOptions;
+    setSelectedTempName(updatedOption1);
+  };
+
+  const handleSelectChangeType = (value, isSelected) => {
+    const updateOptions = value.map((i) => {
+      return i.value;
+    });
+    const updatedOption1 = updateOptions;
+    setSelectedModels(updatedOption1);
+  };
+
   const handleInputChange = (query) => {
     setSearch(query.toLowerCase().trim());
 
-    //filtering for search 
+    //filtering for search
     const filtered = tableData.filter((i) => {
       const id = i.id;
       const tem_name = i.template_name.toLowerCase();
       const model_type = i.model_type.toLowerCase();
       const date_time = i.date_time;
-
-
       return (
         id.includes(query) ||
         tem_name.includes(query) ||
@@ -47,6 +72,29 @@ export default function Records() {
     });
 
     if (filtered.length == 0 && query == "") {
+      setTableData1(tableData);
+    } else {
+      setTableData1(filtered);
+    }
+  };
+
+  const handleFilter = (string) => {
+
+    //filtering for search
+
+    const filtered = tableData.filter((i) => {
+      const ids = i.id.toLowerCase();
+      const tem_name = i.template_name.toLowerCase();
+      const model_type = i.model_type.toLowerCase();
+      const date_time = i.date_time;
+      return (
+        selectedIDs.some((id) => ids.includes(id.toLowerCase())) ||
+        selectedTempName.some((id) => tem_name.includes(id.toLowerCase())) ||
+        selectedModels.some((id) => model_type.includes(id.toLowerCase()))
+      );
+    });
+
+    if (filtered.length == 0) {
       setTableData1(tableData);
     } else {
       setTableData1(filtered);
@@ -79,7 +127,13 @@ export default function Records() {
       <div className={styles.main}>
         <div className={styles.searchFilter}>
           <Search onInputChange={handleInputChange} search={search} />
-          <Filter data={tableData} />
+          <Filter
+            data={tableData}
+            handleSelectChangeId={handleSelectChangeId}
+            handleSelectChangeName={handleSelectChangeName}
+            handleSelectChangeType={handleSelectChangeType}
+            handleFilter={handleFilter}
+          />
         </div>
         <div className={styles.recordFound}>
           <b>{tableData1.length}</b> Records Found

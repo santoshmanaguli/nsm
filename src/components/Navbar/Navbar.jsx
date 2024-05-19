@@ -27,7 +27,7 @@ const Navbar = () => {
               Dashboard
             </div>
           </div>
-          <div className={styles.logo}>
+          <div className={`${styles.logo}`}>
             <img
               src={collections}
               alt="Collections"

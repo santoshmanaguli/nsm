@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 Steps to install app locally
- 1 - Install Node version >= 22.1.0;
- 2 - type "npm install" to install all the dependencies
- 3 - "npm run dev" to run the application.
+ - Install Node version >= 22.1.0;
+ - type "npm install" to install all the dependencies
+ - "npm run dev" to run the application.
 

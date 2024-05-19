@@ -54,6 +54,7 @@ export default function Records() {
     setSelectedModels(updatedOption1);
   };
 
+  //handling search input
   const handleInputChange = (query) => {
     setSearch(query.toLowerCase().trim());
 
@@ -106,7 +107,7 @@ export default function Records() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("data.json"); // Adjust path if needed
+      const response = await fetch("data.json");
       const data = await response.json();
       data.forEach((i) => {
         i.isOpen = false;
@@ -212,8 +213,13 @@ export default function Records() {
                           {row.id}
                         </div>
                       </div>
-                      <div style={{ padding: "15px 80px 15px 80px ", display: 'flex' }}>
-                        <div style={{width: "82%"}}>
+                      <div
+                        style={{
+                          padding: "15px 80px 15px 80px ",
+                          display: "flex",
+                        }}
+                      >
+                        <div style={{ width: "82%" }}>
                           <div>
                             <div style={{ color: "#7A8C98" }}>
                               Model Contract Name
@@ -246,7 +252,9 @@ export default function Records() {
                         <div>
                           <div style={{ color: "#7A8C98" }}>About Model</div>
                           <div>{row.model_desc}</div>
-                          <div style={{ color: "#7A8C98", marginTop: "15px" }}>Model Usage Preferences</div>
+                          <div style={{ color: "#7A8C98", marginTop: "15px" }}>
+                            Model Usage Preferences
+                          </div>
                           <div>{row.model_usage_preference}</div>
                         </div>
                       </div>

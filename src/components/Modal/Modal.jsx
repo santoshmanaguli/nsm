@@ -28,14 +28,17 @@ export default function Modal({
     return { label: i.model_type, value: i.model_type };
   });
 
+  //selecting id
   function handleSelectId(value, isSelected){
     handleSelectChangeId(value, isSelected)
   }
 
+  //selecting template name
   function handleSelectName(value, isSelected){
     handleSelectChangeName(value, isSelected)
   }
 
+  //selecting model type
   function handleSelectType(value, isSelected){
     handleSelectChangeType(value, isSelected)
   }

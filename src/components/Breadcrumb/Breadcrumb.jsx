@@ -3,8 +3,6 @@ import styles from "./Breadcrumb.module.css";
 import {routes} from "../../index";
 import { home, right_arrow } from "../../assets/images";
 
-//images
-
 export default function Breadcrumb() {
   return (
     <div className={styles.container}>

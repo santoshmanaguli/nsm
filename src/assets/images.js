@@ -20,6 +20,13 @@ const info = new URL("./information.svg", import.meta.url).href;
 const continue_template = new URL("./continue.svg", import.meta.url).href;
 const left_arrow = new URL("./left-arrow.svg", import.meta.url).href;
 const close = new URL("./close.svg", import.meta.url).href;
+const search_icon = new URL("../../assets/search.svg", import.meta.url).href;
+const all_template = new URL("../../assets/all-templates.svg", import.meta.url).href;
+const all_template_white = new URL("../../assets/all-templates-white.svg", import.meta.url).href;
+const contract_template = new URL("../../assets/contract-templates.svg", import.meta.url).href;
+const document_template = new URL("../../assets/document-templates.svg", import.meta.url).href;
+const petition_template = new URL("../../assets/petition-templates.svg", import.meta.url).href;
+
 
 
 export {
@@ -44,5 +51,11 @@ export {
   info,
   continue_template,
   left_arrow,
-  close
+  search_icon,
+  close,
+  all_template,
+  all_template_white,
+  contract_template,
+  document_template,
+  petition_template
 };
